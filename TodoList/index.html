@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TodoList</title>
+  <link rel="shortcut icon" href="img/todoListFavicon.png" type="image/x-icon">
+</head>
+<body>
+  <!-- logotipo do TodoList -->
+  <div id="app">
+    <div class="center">
+      <img src="img/todoList.png">
+    </div>
+
+    <!-- Conteudo detinado para o usuário não autenticado. -->
+    <div id="auth" class="center">
+      <!-- Formulário de autenticação -->
+      <form action="authform">
+        <h3 id="authFormTitle">Acesse a sua conta para continuar</h3>
+        <label for="email">E-mail: </label>
+        <input type="email" placeholder="E-mail" id="email">
+
+        <label for="password">Senha: </label>
+        <input type="password" placeholder="Senha" id="password">
+
+        <button type="submit" id="submitAuthForm">Acessar</button>
+      </form>
+
+      <!-- Alternar o formulário de autenticação para o cadastro de uma nova conta -->
+      <p id="register">
+        Não possui uma conta?
+        <button onclick="toggleToRegister()" class="alternative">Cadastrar uma nova conta</button>
+      </p>
+
+      <!-- Alternar o formulário de autenticação para o cadastro de uma nova conta -->
+      <p id="acess" class="startHidden">
+        Já possui uma conta?
+        <button onclick="toggleToRegister()" class="alternative">Acessar a sua conta</button>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
