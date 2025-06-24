@@ -13,6 +13,11 @@
       <img src="img/todoList.png">
     </div>
 
+    <!--Feedback de carregamento (loading)-->
+    <div id="loading">
+      <img src="img/loading.gif" alt="Animação de carregamento">
+    </div>
+
     <!--Conteúdo destinado para usuários não autenticados-->
     <div id="auth" class="center">
       <!--Formulário de autenticação-->
@@ -40,15 +45,31 @@
         <button onclick="toggleToAccess()" class="alternative">Acesse a sua conta</button>
       </p>
     </div>
+
+    <!--Conteúdo destinado para usuários não autenticados-->
+    <div id="userContent" class="startHidden">
+      <!--Conteúdo destinado para usuários autenticados-->
+      
+
+      <!--Lista de tarefas-->
+      <div id="todoList">
+        <h3>Lista de Tarefas</h3>
+        <ul id="todoItems"></ul>
+        <input type="text" id="newTodoItem" placeholder="Adicionar nova tarefa...">
+        <button id="addTodoItem">Adicionar</button>
+      </div>
+
+    </div>
   </div>
 
-  <!--Biblioteca do Firebase para autenticação-->
+  <!--Recursos do Firebase-->
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
 
+  
   <!--Nossa programação em JavaScript-->
-  <script src="js/utils.js"></script>
   <script src="js/firebase.js"></script>
+  <script src="js/utils.js"></script>
   <script src="js/auth.js"></script>
 </body>
 </html>
