@@ -46,19 +46,17 @@
       </p>
     </div>
 
-    <!--Conteúdo destinado para usuários não autenticados-->
+    <!--Conteúdo destinado para usuários autenticados-->
     <div id="userContent" class="startHidden">
-      <!--Conteúdo destinado para usuários autenticados-->
-      
-
-      <!--Lista de tarefas-->
-      <div id="todoList">
-        <h3>Lista de Tarefas</h3>
-        <ul id="todoItems"></ul>
-        <input type="text" id="newTodoItem" placeholder="Adicionar nova tarefa...">
-        <button id="addTodoItem">Adicionar</button>
+      <hr>
+      <div id="userInfo" class="center">
+        <p id="userEmail"></p>
+        <p id="emailVerified"></p>
+        <div id="sendEmailVerificationDiv">
+          <button class="alternative" onclick="sendEmailVerification()">Verificar e-mail</button>
+        </div>
+        <button class="alternative" onclick="signOut()">Sair</button>
       </div>
-
     </div>
   </div>
 
