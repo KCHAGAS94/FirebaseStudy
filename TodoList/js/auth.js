@@ -1,5 +1,6 @@
 
-
+// Traduz para português brasileiro a autenticação do Firebase
+firebase.auth().languageCode = 'pt-BR'
 
 // Função que trata a submissão do formulário de autenticação
 authForm.onsubmit = function (event) {
@@ -42,7 +43,7 @@ function signOut() {
 function sendEmailVerification() {
   showItem(loading)
   var user = firebase.auth().currentUser
-  user.sendEmailVerification().then(function () {
+  user.sendEmailVerification(actionCodeSettings).then(function () {
     alert('E-mail de verificação foi enviado para ' + user.email + '! Verifique a sua caixa de entrada')
   }).catch(function (error) {
     alert('Houve um erro ao enviar o e-mail de verificação')
@@ -51,3 +52,53 @@ function sendEmailVerification() {
     hideItem(loading)
   })
 }
+
+// Função que permite o usuário redefinir a senha dele
+function sendPasswordResetEmail() {
+  var email = prompt('Redefinir senha! Informe o seu endereço de e-mail.', authForm.email.value)
+  if (email) {
+    showItem(loading)
+    firebase.auth().sendPasswordResetEmail(email, actionCodeSettings).then(function () {
+      alert('E-mail de redefinição de senha foi enviado para ' + email + '.')
+    }).catch(function (error) {
+      alert('Houve um erro ao enviar e-mail de redefinição de senha!')
+      console.log(error)
+    }).finally(function () {
+      hideItem(loading)
+    })
+  } else {
+    alert('É preciso preencher o campo de e-mail para redefinir a senha!')
+  }
+}
+
+// Função que permite a autenticação pelo Google
+function signInWithGoogle() {
+  showItem(loading)
+  firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function (error) {
+    alert('Houve um erro ao autenticar usando o Google')
+    console.log(error)
+    hideItem(loading)
+  })
+}
+
+// Função que permite a autenticação pelo GitHub
+function signInWithGitHub() {
+  showItem(loading)
+  firebase.auth().signInWithPopup(new firebase.auth.GithubAuthProvider()).catch(function (error) {
+    alert('Houve um erro ao autenticar usando o GitHub')
+    console.log(error)
+    hideItem(loading)
+  })
+}
+
+// Função que permite a autenticação pelo Facebook
+function signInWithFacebook() {
+  showItem(loading)
+  firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider()).catch(function (error) {
+    alert('Houve um erro ao autenticar usando o Facebook')
+    console.log(error)
+    hideItem(loading)
+  })
+}
+
+
